@@ -97,7 +97,7 @@ const HomeScreen = () => {
       formData.append("num1", verifyFraction(num1));
       formData.append("num2", verifyFraction(num2));
   
-      const response = await fetch("http://127.0.0.1:8000/add/", {
+      const response = await fetch("http://localhost:8000/add/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: formData.toString(),
@@ -127,14 +127,11 @@ const HomeScreen = () => {
     if (!validateInputs()) return;
     
     try {
-      const num1Value = num1;
-      const num2Value = num2;
-  
       const formData = new URLSearchParams();
       formData.append("num1", verifyFraction(num1));
       formData.append("num2", verifyFraction(num2));
   
-      const response = await fetch("http://127.0.0.1:8000/subtract/", {
+      const response = await fetch("http://localhost:8000/subtract/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: formData.toString(),
