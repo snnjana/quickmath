@@ -6,6 +6,7 @@
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837?style=flat&logo=npm&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-%23000000?style=flat&logo=fastapi&logoColor=white)
 ![Jest](https://img.shields.io/badge/Jest-%23C21325?style=flat&logo=jest&logoColor=white)
+![Expo](https://img.shields.io/badge/Expo-%23000000?style=flat&logo=expo&logoColor=white)
 
 ## Set Up
 
