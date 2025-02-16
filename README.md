@@ -31,7 +31,7 @@ Run the backend server using Uvicorn. Make sure you're in the project directory 
         npm run ios
 
 4. **Unit testing**   
-Run tests by running the following command:
+Run tests by running the following commands:
 
    ```bash
    npm test
