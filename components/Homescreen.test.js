@@ -33,6 +33,67 @@ describe("HomeScreen", () => {
             });
     });
 
+    it("correctly handles fraction input", async () => {
+        fetch.mockResolvedValueOnce({
+            ok: true,
+            json: () => Promise.resolve({ result: "1.5" }),
+        });
+
+        const { getByText, getByPlaceholderText } = render(<HomeScreen />);
+
+        const num1Input = getByPlaceholderText("First number");
+        const num2Input = getByPlaceholderText("Second number");
+
+        fireEvent.changeText(num1Input, "3/2");
+        fireEvent.changeText(num2Input, "0");
+
+        const addButton = getByText("Add");
+        fireEvent.press(addButton);
+
+        await waitFor(() => {
+            expect(getByText("= 1.5")).toBeTruthy();
+        });
+    });
+
+    it("displays error for invalid fraction", async () => {
+        const { getByText, getByPlaceholderText } = render(<HomeScreen />);
+
+        const num1Input = getByPlaceholderText("First number");
+        const num2Input = getByPlaceholderText("Second number");
+
+        fireEvent.changeText(num1Input, "2/0"); 
+        fireEvent.changeText(num2Input, "5");
+
+        const addButton = getByText("Add");
+        fireEvent.press(addButton);
+
+        await waitFor(() => {
+            expect(getByText("Please enter valid numbers or fractions.")).toBeTruthy();
+        });
+    });
+
+    it("displays 0 for empty inputs", async () => {
+        fetch.mockResolvedValueOnce({
+            ok: true,
+            json: () => Promise.resolve({ result: "0" }),
+        });
+
+        const { getByText, getByPlaceholderText } = render(<HomeScreen />);
+
+        const num1Input = getByPlaceholderText("First number");
+        const num2Input = getByPlaceholderText("Second number");
+
+        fireEvent.changeText(num1Input, "");
+        fireEvent.changeText(num2Input, "");
+
+        const addButton = getByText("Add");
+        fireEvent.press(addButton);
+
+        await waitFor(() => {
+            expect(getByText("= 0")).toBeTruthy();
+        });
+    });
+
     it("displays error message for invalid input", async () => {
         const { getByText, getByPlaceholderText } = render(<HomeScreen />);
 
