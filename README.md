@@ -8,10 +8,6 @@
 ![Jest](https://img.shields.io/badge/Jest-%23C21325?style=flat&logo=jest&logoColor=white)
 ![Expo](https://img.shields.io/badge/Expo-%23000000?style=flat&logo=expo&logoColor=white)
 
-## Successful unit testing
-
-![Test Results](root/test-results.png)
-
 ## Set Up
 
 1. **Install dependencies**  
@@ -39,3 +35,6 @@ Run tests by running the following command:
 
    ```bash
    npm test
+
+Testing results (done with jest):
+![Test Results](test-results.png)
