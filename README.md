@@ -34,6 +34,7 @@ Run the backend server using Uvicorn. Make sure you're in the project directory 
 Run tests by running the following commands:
 
    ```bash
+   npm install jest-expo
    npm test
 
 Testing results (done with jest):
