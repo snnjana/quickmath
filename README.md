@@ -1,4 +1,4 @@
-# Quickmath
+# Quickmath <img src="assets/logo.png" height="40" />
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![React Native](https://img.shields.io/badge/React%20Native-%2300B0FF?style=flat&logo=react-native&logoColor=white)
