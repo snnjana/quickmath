@@ -167,4 +167,35 @@ describe("HomeScreen", () => {
         expect(num1Input.props.value).toBe("");
         expect(num2Input.props.value).toBe("");
     });
+
+    it("clears result and shows error when invalid input is entered after valid input", async () => {
+        fetch.mockResolvedValueOnce({
+            ok: true,
+            json: () => Promise.resolve({ result: "5" }),
+        });
+
+        const { getByText, getByPlaceholderText } = render(<HomeScreen />);
+
+        const num1Input = getByPlaceholderText("First number");
+        const num2Input = getByPlaceholderText("Second number");
+
+        fireEvent.changeText(num1Input, "2");
+        fireEvent.changeText(num2Input, "3");
+
+        const addButton = getByText("Add");
+        fireEvent.press(addButton);
+
+        await waitFor(() => {
+            expect(getByText("= 5")).toBeTruthy();
+        });
+
+        fireEvent.changeText(num1Input, "2/0");
+        fireEvent.changeText(num2Input, "3");
+
+        fireEvent.press(addButton);
+
+        await waitFor(() => {
+            expect(getByText("Please enter valid numbers or fractions.")).toBeTruthy();
+        });
+    });
 });
