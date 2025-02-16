@@ -23,6 +23,8 @@ def format_to_scientific(num: float) -> str:
     :return: The formatted string
     """
     num_str = f"{num:.10f}".rstrip("0").rstrip(".")
+    if (num == 0):
+        return "0"
     if abs(num) < 1e-6 or abs(num) > 1e6:  
         return "{:.2e}".format(num)
     return num_str 
