@@ -5,7 +5,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8081", "http://127.0.0.1:4040"], 
+    allow_origins=["http://localhost:8081", "https://quickmath-liard.vercel.app"], 
     allow_credentials=True,
     allow_methods=["*"],  
     allow_headers=["*"],  
