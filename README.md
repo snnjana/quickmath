@@ -23,7 +23,7 @@ Run the backend server using Uvicorn. Make sure you're in the project directory 
    uvicorn backend.main:app --reload
 
 3. **Open the app**   
-   To open the app on the web, run the following command. The app will open on http://localhost:8081.
+   To open the app on the web, run the following command on a separate terminal. The app will open on http://localhost:8081.
    
         npm run web
    This app is also compatible on iOS. To open it on iOS (Xcode & Simulator required), run the following       command:
